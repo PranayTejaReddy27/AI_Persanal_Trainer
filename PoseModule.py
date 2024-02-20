@@ -45,6 +45,8 @@ class poseDetector():
         x3, y3 = self.lmList[p3][1:]
 
         if draw:
+            cv2.line(img, (x1, y1), (x2, y2), (0,255,0), 3)
+            cv2.line(img, (x2, y2), (x3, y3), (0,255,0), 3)
             cv2.circle(img, (x1, y1), 10, (255, 0, 0), cv2.FILLED)
             cv2.circle(img, (x1, y1), 15, (0, 0, 255), 2)
             cv2.circle(img, (x2, y2), 10, (255, 0, 0), cv2.FILLED)
