@@ -2,7 +2,7 @@ import cv2
 import pandas as pd
 import time
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('Videos/dumbbells.mp4')
 
 while True:
     success, img = cap.read()
