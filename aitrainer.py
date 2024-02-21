@@ -20,7 +20,8 @@ while True:
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
-    cv2.putText(img, str(int(fps)), (70,50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
+    # display FPS
+    #cv2.putText(img, str(int(fps)), (70,50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
     #print(lmList)
     if len(lmList) != 0: 
         # left arm 
@@ -39,7 +40,12 @@ while True:
                 count += 0.5
                 dir = 0
         print(count)
-        cv2.putText(img, str(int(count)), (50,100), cv2.FONT_HERSHEY_SIMPLEX,2, (123,234,104),3)
+        # draw rectangle 
+        cv2.rectangle(img, (20,10),(200,100),(123,232,121),cv2.FILLED)
+        # count text display
+        cv2.putText(img, str(int(count)), (90,90), cv2.FONT_HERSHEY_SIMPLEX,2, (23,34,10),3)
+        # display FPS
+    cv2.putText(img,"FPS : " + str(int(fps)), (70,30), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
 
     cv2.imshow("Image",img)
     key = cv2.waitKey(1)
