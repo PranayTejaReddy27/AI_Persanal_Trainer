@@ -5,7 +5,7 @@ import time
 import PoseModule as pm
 
 
-cap = cv2.VideoCapture('Videos/dumbbells.mp4')
+cap = cv2.VideoCapture(0)
 detector = pm.poseDetector()
 count = 0
 dir  = 0
@@ -14,7 +14,7 @@ pTime = 0
 while True:
     success, img = cap.read()
     #img = cv2.imread('Videos/example.jpg')
-    img = cv2.resize(img, (420,840))
+    #img = cv2.resize(img, (420,840))
     img = detector.findPose(img, False)
     lmList = detector.findPosition(img, False)
     cTime = time.time()
@@ -29,6 +29,7 @@ while True:
         # right arm
         #detector.findAngle(img, 12, 14, 16)
         per = np.interp(angle,(200,320),(0,100))
+        bar = np.interp(angle,(200,320),(450,100))
         #print(angle,per)
         if per == 100 :
             if dir == 0:
@@ -40,6 +41,10 @@ while True:
                 count += 0.5
                 dir = 0
         print(count)
+        # accuracy bar 
+        cv2.rectangle(img, (540,100),(580,450),(123,232,121),2)
+        cv2.rectangle(img, (540,int(bar)),(580,450),(123,232,121),cv2.FILLED)
+        cv2.putText(img, f'{int(per)} %', (540,75), cv2.FONT_HERSHEY_SIMPLEX,0.5, (23,34,10),2)
         # draw rectangle 
         cv2.rectangle(img, (20,10),(200,100),(123,232,121),cv2.FILLED)
         # count text display
