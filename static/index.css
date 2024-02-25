@@ -9,7 +9,29 @@ h1 {
 }
 
 img {
-    display: block;
-    margin: 0 auto;
-    border: 1px solid #ccc;
+    display: flex;
+    padding: 10px;
+
+    
+}
+.main_frame{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    flex-direction: column;
+}
+.frame{
+    min-width: 900px;
+    min-height: 600px;
+    border: 2px solid #853939;
+    border-radius: 6px;
+    margin-top: 40px;
+}
+button{
+    margin-top: 20px;
+    background-origin: none;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(193, 136, 247);
 }

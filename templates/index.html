@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="../static/index.css">   
     <title>Pose Detection</title>
 </head>
 <body>
-    <h1>Pose Detection</h1>
-    <img src="{{ url_for('video_feed') }}">
+    
+    <div class="main_frame">
+        <h1>Pose Detection</h1>
+        <div class="frame">
+            <img id="video_feed" src="../Videos/dumbbells-2.mp4">
+        </div>
+        <button id="start_button">Let's go</button>
+    </div>
+
+    <script>
+        document.getElementById("start_button").addEventListener("click", function() {
+            var video = document.getElementById("video_feed");
+            video.src = "{{ url_for('video_feed') }}";
+        });
+    </script>
+    
 </body>
 </html>

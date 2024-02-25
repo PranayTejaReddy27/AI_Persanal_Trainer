@@ -17,7 +17,6 @@ def dumbbells():
 
     while True:
         success, img = cap.read()
-        #img = cv2.imread('Videos/example.jpg')
         #img = cv2.resize(img, (420,840))
         img = detector.findPose(img, False)
         lmList = detector.findPosition(img, False)
@@ -46,6 +45,8 @@ def dumbbells():
             # Append new row of data to the DataFrame
             #new_data = {'position': "11,13,15", '11x': lmList[11][1], '11y': lmList[11][2], 'angle': angle, 'percentage': per, 'polarity': 1}
             #df = df._append(new_data, ignore_index=True)
+                    
+
             #print(count)
             # accuracy bar 
             cv2.rectangle(img, (540,100),(580,450),(123,232,121),2)
