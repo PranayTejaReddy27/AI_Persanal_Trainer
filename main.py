@@ -8,7 +8,7 @@ from flask import Flask, render_template, Response
 app = Flask(__name__)
 
 def dumbbells():
-    cap = cv2.VideoCapture(1,cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(2)
     detector = pm.poseDetector()
     count = 0
     dir  = 0
